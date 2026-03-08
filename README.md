@@ -3,7 +3,7 @@ A React web application that generates personalised lipstick and lip liner combi
 **Features:**<br>
 - Generate random lip combinations
 - Filter combos by undertone and colour family
-- Responsive design for mobile and desktop
+- Responsive design for mobile and desktop<br>
 ###**Tech Stack:**<br>
 - React
 - JavaScript 
