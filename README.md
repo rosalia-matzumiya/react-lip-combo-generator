@@ -1,5 +1,4 @@
 # Lip Combo Generator
-## **Project description**<br>
 A React web application that generates personalised lipstick and lip liner combinations based on colour family and undertone preferences.<br>
 **Features:**<br>
 - Generate random lip combinations
