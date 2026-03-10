@@ -3,9 +3,21 @@ const router = express.Router();
 
 const products = require("../data/products.json");
 
-
 router.get("/", (req, res) => {
-  res.json(products);
+  let filteredProducts = products;
+
+  for (const key in req.query) {
+    const value = req.query[key];
+
+    filteredProducts = filteredProducts.filter(
+      product =>
+        product[key] &&
+        product[key].toLowerCase() === value.toLowerCase()
+    );
+
+  }
+
+  res.json(filteredProducts);
 });
 
 
@@ -20,18 +32,5 @@ router.get("/:id", (req, res) => {
   }
   res.json(product);
 });
-
-router.get("/", (req, res) => {
-  const { type } = req.query;
-
-  if (type) {
-    const filteredProducts = products.filter(p => p.type === type);
-    return res.json(filteredProducts);
-  }
-
-  res.json(products);
-});
-
-
 
 module.exports = router;
