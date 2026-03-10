@@ -21,4 +21,17 @@ router.get("/:id", (req, res) => {
   res.json(product);
 });
 
+router.get("/", (req, res) => {
+  const { type } = req.query;
+
+  if (type) {
+    const filteredProducts = products.filter(p => p.type === type);
+    return res.json(filteredProducts);
+  }
+
+  res.json(products);
+});
+
+
+
 module.exports = router;
