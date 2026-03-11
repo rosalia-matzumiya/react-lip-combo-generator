@@ -3,6 +3,7 @@ const router = express.Router();
 
 //import products
 const products = require("../data/products.json");
+const { randomItem } = require("../utils/random");
 
 //create category groups
 const liners = products.filter(p => p.type === "Liner");
@@ -13,10 +14,6 @@ const toppers = products.filter(p =>
   ["Gloss", "Balm"].includes(p.type)
 );
 
-//create random combo generator
-function randomItem(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
 
 //create endpoint
 router.get("/random", (req, res) => {
