@@ -1,34 +1,32 @@
 import { useState } from "react"
 
-const combos = [
-  { liner: "MAC Oak", lipstick: "MAC Bombshell" },
-  { liner: "MAC Cork", lipstick: "Marc Jacobs Red" },
-  { liner: "MAC Whirl", lipstick: "Charlotte Tilbury Pillow Talk" },
-]
-
 function App() {
-
   const [combo, setCombo] = useState(null)
 
-  const generateCombo = () => {
-    const random = combos[Math.floor(Math.random() * combos.length)]
-    setCombo(random)
+  async function generateCombo() {
+    const response = await fetch("http://localhost:4000/combos/random")
+    const data = await response.json()
+
+    setCombo(data)
   }
 
   return (
     <div style={{ textAlign: "center", marginTop: "3rem" }}>
       <h1>Lip Combo Generator</h1>
-
       <button onClick={generateCombo}>
-        Generate Combo
+        Generate Lip Combo
       </button>
+      {
+        combo && (
+          <div>
+            <h2>{combo.colorFamily} Combo</h2>
 
-      {combo && (
-        <div>
-          <p>Lip Liner: {combo.liner}</p>
-          <p>Lipstick: {combo.lipstick}</p>
-        </div>
-      )}
+            <p>Liner: {combo.liner.brand} – {combo.liner.shade}</p>
+            <p>Lipstick: {combo.base.brand} – {combo.base.shade}</p>
+            <p>Topper: {combo.topper.brand} – {combo.topper.shade}</p>
+          </div>
+        )
+      }
     </div>
   )
 }
