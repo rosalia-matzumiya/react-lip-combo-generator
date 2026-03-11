@@ -17,7 +17,7 @@ function ComboGenerator() {
 
   return (
     <div>
-      <button onClick={generateCombo}>
+      <button onClick={generateCombo} disabled={loading}>
         Generate Lip Combo
       </button>
       {loading && <p>Loading...</p>}
