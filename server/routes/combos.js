@@ -4,7 +4,8 @@ const router = express.Router();
 //import products
 const products = require("../data/products.json");
 const { randomItem } = require("../utils/random");
-const { route } = require("./products");
+const { formatProduct } = require("../utils/formatter");
+
 
 //create category groups
 const liners = products.filter(p => p.type === "Liner");
@@ -37,9 +38,10 @@ router.get("/random", (req, res) => {
   const topper = randomItem(toppers);
 
   res.json({
-    liner,
-    base,
-    topper
+    colorFamily: base.colorFamily,
+    liner: formatProduct(liner),
+    base: formatProduct(base),
+    topper: formatProduct(topper)
   });
 });
 
