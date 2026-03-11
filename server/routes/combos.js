@@ -43,14 +43,4 @@ router.get("/random", (req, res) => {
   });
 });
 
-router.get("/meta/colorFamilies", (req, res) => {
-  const colorFamilies = products
-    .map(p => p.colorFamily)
-    .filter(color => color);
-
-  const uniqueColorFamilies = [...new Set(colorFamilies)];
-
-  res.json(uniqueColorFamilies.sort());
-});
-
 module.exports = router;

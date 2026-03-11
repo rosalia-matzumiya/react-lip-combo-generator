@@ -25,6 +25,32 @@ router.get("/", (req, res) => {
   res.json(filteredProducts);
 });
 
+router.get("/meta", (req, res) => {
+  const brands = products
+    .map(p => p.brand)
+    .filter(brand => brand);
+  const types = products
+    .map(p => p.type)
+    .filter(type => type);
+  const colorFamilies = products
+    .map(p => p.colorFamily)
+    .filter(color => color);
+  const finishes = products
+    .map(p => p.finish)
+    .filter(finish => finish);
+
+  const uniqueBrands = [...new Set(brands)].sort();
+  const uniqueTypes = [...new Set(types)].sort();
+  const uniqueColorFamilies = [...new Set(colorFamilies)].sort();
+  const uniqueFinishes = [...new Set(finishes)].sort();
+
+  res.json({
+    uniqueBrands,
+    uniqueTypes,
+    uniqueColorFamilies,
+    uniqueFinishes
+  });
+});
 
 router.get("/:id", (req, res) => {
   const productId = req.params.id;
