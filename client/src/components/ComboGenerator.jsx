@@ -7,7 +7,8 @@ function ComboGenerator() {
   async function generateCombo() {
 
     setLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    setCombo(null);
+    await new Promise(resolve => setTimeout(resolve, 500));
     const response = await fetch("http://localhost:4000/combos/random");
     const data = await response.json();
 
