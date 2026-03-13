@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { fetchRandomCombos } from "../api/combos"
 
 function ComboGenerator() {
   const [combos, setCombos] = useState([]);
@@ -8,9 +9,7 @@ function ComboGenerator() {
 
     setLoading(true);
     await new Promise(resolve => setTimeout(resolve, 500));
-    const response = await fetch("http://localhost:4000/combos/random?count=3");
-    const data = await response.json();
-
+    const data = await fetchRandomCombos();
     setCombos(data.combos);
     setLoading(false);
   }
