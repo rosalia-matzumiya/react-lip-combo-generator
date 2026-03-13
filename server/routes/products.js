@@ -3,10 +3,6 @@ const router = express.Router();
 
 const products = require("../data/products.json");
 
-// router.get("/", (req, res) => {
-//   res.json(products);
-// });
-
 
 router.get("/", (req, res) => {
   let filteredProducts = products;
