@@ -1,7 +1,11 @@
-export async function fetchRandomCombos(count = 3) {
-  const response = await fetch(`http://localhost:4000/combos/random?count=${count}`);
+export async function fetchRandomCombos(colorFamily = "", count = 3) {
+  let url = `http://localhost:4000/combos/random?count=${count}`;
 
-  const data = await response.json();
+  if (colorFamily) {
+    url += `&colorFamily=${colorFamily}`;
+  }
+  const response = await fetch(url);
+  const data = response.json();
 
   return data;
 
