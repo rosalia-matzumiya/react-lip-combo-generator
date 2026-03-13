@@ -1,5 +1,6 @@
-import { useState } from "react"
-import { fetchRandomCombos } from "../api/combos"
+import { useState } from "react";
+import { fetchRandomCombos } from "../api/combos";
+import ComboCard from "./ComboCards";
 
 function ComboGenerator() {
   const [combos, setCombos] = useState([]);
@@ -9,7 +10,7 @@ function ComboGenerator() {
   function handleColorChange(event) {
     setColorFamily(event.target.value);
   }
-  
+
   async function generateCombo() {
 
     setLoading(true);
@@ -38,13 +39,7 @@ function ComboGenerator() {
         <div>
           {
             combos.map((combo, index) => (
-              <div key={index}>
-                <h2>{combo.colorFamily} Combo {index + 1}</h2>
-
-                <p>Liner: {combo.liner.brand} – {combo.liner.shade}</p>
-                <p>Lipstick: {combo.base.brand} – {combo.base.shade}</p>
-                <p>Topper: {combo.topper.brand} – {combo.topper.shade}</p>
-              </div>
+              <ComboCard key={index} combo={combo} index={index} />
             ))
           }
 
