@@ -1,3 +1,4 @@
+import "./ComboCard.css";
 function ComboCard({ combo, index }) {
   return (
     <div className="combo-card">

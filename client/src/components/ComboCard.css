@@ -1,0 +1,16 @@
+/* ComboCard.css */
+.combo-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.combo-card h2 {
+  margin-bottom: 10px;
+}
+
+.combo-card p {
+  margin: 4px 0;
+}
