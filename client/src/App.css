@@ -1,9 +1,9 @@
 #root {
-  /* max-width: 1280px; */
   width: 100%;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 2rem;
   text-align: center;
+  font-family: system-ui, sans-serif;
 }
 
 .logo {
@@ -34,10 +34,21 @@
   }
 }
 
-.card {
-  padding: 2em;
+select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-.read-the-docs {
-  color: #888;
+select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+label {
+  font-size: 14px;
+  color: #555;
 }

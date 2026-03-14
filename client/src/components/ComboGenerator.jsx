@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fetchRandomCombos } from "../api/combos";
-import ComboCard from "./ComboCards";
+import ComboCard from "./ComboCard";
 import "./ComboGenerator.css"
 
 function ComboGenerator() {
@@ -23,16 +23,20 @@ function ComboGenerator() {
 
   return (
     <div className="combo-generator">
-      <label>Color Family</label>
-      <select value={colorFamily} onChange={handleColorChange}>
-        <option value="">All</option>
-        <option value="nude">Nude</option>
-        <option value="brown">Brown</option>
-        <option value="red">Red</option>
-        <option value="pink">Pink</option>
-        <option value="peach">Peach</option>
-      </select>
-      <button onClick={generateCombo} disabled={loading}>
+      <div className="controls">
+        <div className="filter-row">
+          <label htmlFor="colorFamily">Color Family</label>
+          <select value={colorFamily} onChange={handleColorChange} id="colorFamily">
+            <option value="">All</option>
+            <option value="nude">Nude</option>
+            <option value="brown">Brown</option>
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="peach">Peach</option>
+          </select>
+        </div>
+      </div>
+      <button className="generate-button" onClick={generateCombo} disabled={loading}>
         Generate Combos
       </button>
       {loading && <p>Loading...</p>}
