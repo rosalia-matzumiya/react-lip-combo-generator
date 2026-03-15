@@ -1,11 +1,73 @@
 
 # Lip Combo Generator
-A React web application that generates personalised lipstick and lip liner combinations based on colour family.<br>
-**Features:**<br>
-- Generate random lip combinations
-- Filter combos by colour family
-- Responsive design for mobile and desktop<br>
-## **Tech Stack:**<br>
-- Frontend: React, JavaScript, HTML5, CSS
-- Backend: Node + Express
-- Dataset: 136 lip products 
+A full-stack web application that generates lip combinations from a user's makeup inventory.<br>
+The application allows users to select a color family and generate a compatible lip combo consisting of:<br>
+- Lip liner
+- Lipstick base
+- Gloss or balm topper<br>
+The project was built as a learning exercise to practice full-stack development and API design.
+
+## **Problem**<br>
+Choosing a lip combination from a large makeup collection can be overwhelming. Many users experiment with layering products, but discovering good combinations requires trial and error.
+## **Solution**<br>
+Lip Combo Generator automatically creates compatible lip combinations based on product attributes such as type and color family.<br>
+The application filters products and generates structured combinations consisting of:<br>
+liner + base + topper<br>
+This allows users to quickly explore possible combinations from their existing inventory.<br>
+
+### **Features:**<br>
+- Generate lip combos based on a selected color family
+- Randomized liner and topper selection
+- Lipstick base matched to the chosen color family
+- Structured API responses
+- Simple and responsive React UI<br>
+
+### **Dataset**<br>
+The project currently uses a static dataset stored in:<br>
+server/data/products.json<br>
+Current dataset size:<br>
+- 65 liners
+- 13 crayons
+- 30 lipsticks
+- 21 glosses
+- 6 balms<br>
+Total lip products: 135<br>
+### **Tech Stack:**<br>
+- Frontend: React + Vite + CSS
+- Backend: Node.js + Express
+- Architecture: REST API + Static JSON dataset 
+
+### **Architecture**<br>
+The application follows a simple client-server architecture.<br>
+React handles the UI and sends requests to an Express backend, which processes the dataset and returns generated lip combinations.<br>
+
+### **Setup**<br>
+Clone the repository
+
+git clone
+
+Install dependencies
+
+cd server
+npm install
+
+cd ../client
+npm install
+
+Run backend
+
+cd server
+node server.js
+
+Run frontend
+
+cd client
+npm run dev
+
+### ** Future Improvements** 
+Potential future improvements include:<br>
+- User inventory management
+- Smarter combination algorithm
+- Save favorite combos
+- Database integration
+- Mobile responsive improvements
