@@ -5,6 +5,7 @@ The application allows users to select a color family and generate a compatible 
 - Lip liner
 - Lipstick base
 - Gloss or balm topper<br>
+
 The project was built as a learning exercise to practice full-stack development and API design.
 
 ## **Problem**<br>
