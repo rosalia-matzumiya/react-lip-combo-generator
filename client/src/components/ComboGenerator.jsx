@@ -39,7 +39,7 @@ function ComboGenerator() {
       <button className="generate-button" onClick={generateCombo} disabled={loading}>
         Generate Combos
       </button>
-      {loading && <p>Loading...</p>}
+      {loading && <p>Generating...</p>}
       {combos.length > 0 && !loading && (
         <div className="combo-grid">
           {
