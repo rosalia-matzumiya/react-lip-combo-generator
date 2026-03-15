@@ -13,7 +13,9 @@ Choosing a lip combination from a large makeup collection can be overwhelming. M
 ## **Solution**<br>
 Lip Combo Generator automatically creates compatible lip combinations based on product attributes such as type and color family.<br>
 The application filters products and generates structured combinations consisting of:<br>
+
 liner + base + topper<br>
+
 This allows users to quickly explore possible combinations from their existing inventory.<br>
 
 ### **Features:**<br>
@@ -25,13 +27,16 @@ This allows users to quickly explore possible combinations from their existing i
 
 ### **Dataset**<br>
 The project currently uses a static dataset stored in:<br>
+
 server/data/products.json<br>
+
 Current dataset size:<br>
 - 65 liners
 - 13 crayons
 - 30 lipsticks
 - 21 glosses
 - 6 balms<br>
+
 Total lip products: 135<br>
 ## **Tech Stack:**<br>
 - Frontend: React + Vite + CSS
@@ -40,6 +45,7 @@ Total lip products: 135<br>
 
 ## **Architecture**<br>
 The application follows a simple client-server architecture.<br>
+
 React handles the UI and sends requests to an Express backend, which processes the dataset and returns generated lip combinations.<br>
 
 ## Setup
