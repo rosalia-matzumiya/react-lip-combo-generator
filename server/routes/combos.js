@@ -16,10 +16,22 @@ const toppers = products.filter(p =>
   ["Gloss", "Balm"].includes(p.type)
 );
 
+function generateCombo(basesFiltered, liners, toppers) {
+  const liner = randomItem(liners);
+  const base = randomItem(basesFiltered);
+  const topper = randomItem(toppers);
+
+  return {
+    colorFamily: base.colorFamily,
+    liner: formatProduct(liner),
+    base: formatProduct(base),
+    topper: formatProduct(topper)
+  }
+}
 
 //create combo generation endpoint
 router.get("/random", (req, res) => {
-
+  const count = Number(req.query.count) || 1;
   const colorFamily = req.query.colorFamily;
   let basesFiltered = bases;
 
@@ -33,16 +45,20 @@ router.get("/random", (req, res) => {
       basesFiltered = bases;
     }
   }
-  const liner = randomItem(liners);
-  const base = randomItem(basesFiltered);
-  const topper = randomItem(toppers);
 
-  res.json({
-    colorFamily: base.colorFamily,
-    liner: formatProduct(liner),
-    base: formatProduct(base),
-    topper: formatProduct(topper)
-  });
+  if (count === 1) {
+    const combo = generateCombo(basesFiltered, liners, toppers);
+    return res.json(combo);
+
+  }
+
+  const combos = [];
+  for (let i = 0; i < count; i++) {
+    combos.push(generateCombo(basesFiltered, liners, toppers));
+
+  }
+
+  res.json({ combos });
 });
 
 module.exports = router;
