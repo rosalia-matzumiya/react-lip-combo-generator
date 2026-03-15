@@ -46,8 +46,22 @@ Total lip products: 135<br>
 ## **Architecture**<br>
 The application follows a simple client-server architecture.<br>
 
-React handles the UI and sends requests to an Express backend, which processes the dataset and returns generated lip combinations.<br>
+The React frontend handles the UI and sends requests to an Express backend. 
 
+The backend processes the dataset and generates lip combinations based on product attributes.<br>
+```mermaid
+graph TD
+
+User --> ReactUI
+ReactUI --> ExpressAPI
+ExpressAPI --> ComboGenerator
+ComboGenerator --> ProductsDataset
+
+ProductsDataset["products.json dataset"]
+ReactUI["React Frontend"]
+ExpressAPI["Express API"]
+ComboGenerator["Combo Generator Logic"]
+```
 ## Setup
 
 ### 1. Clone the repository
