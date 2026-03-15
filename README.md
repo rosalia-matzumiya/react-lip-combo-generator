@@ -32,39 +32,89 @@ Current dataset size:<br>
 - 21 glosses
 - 6 balms<br>
 Total lip products: 135<br>
-### **Tech Stack:**<br>
+## **Tech Stack:**<br>
 - Frontend: React + Vite + CSS
 - Backend: Node.js + Express
 - Architecture: REST API + Static JSON dataset 
 
-### **Architecture**<br>
+## **Architecture**<br>
 The application follows a simple client-server architecture.<br>
 React handles the UI and sends requests to an Express backend, which processes the dataset and returns generated lip combinations.<br>
 
-### **Setup**<br>
-Clone the repository
+## Setup
 
-git clone
+### 1. Clone the repository
 
-Install dependencies
+```bash
+git clone https://github.com/your-username/lip-combo-generator.git
+cd lip-combo-generator
+```
 
+---
+
+### 2. Install dependencies
+
+Install backend dependencies:
+
+```bash
 cd server
 npm install
+```
 
+Install frontend dependencies:
+
+```bash
 cd ../client
 npm install
+```
 
-Run backend
+---
 
+### 3. Run the backend server
+
+```bash
 cd server
 node server.js
+```
 
-Run frontend
+The backend will start on:
 
+```
+http://localhost:4000
+```
+
+---
+
+### 4. Run the frontend
+
+Open a new terminal and run:
+
+```bash
 cd client
 npm run dev
+```
 
-### ** Future Improvements** 
+The frontend will start on:
+
+```
+http://localhost:5173
+```
+
+---
+
+### 5. Generate lip combos
+
+1. Open the frontend in your browser  
+2. Select a **color family**  
+3. Click **Generate Combos**
+
+The application will generate a lip combination consisting of:
+
+- liner
+- lipstick base
+- topper (gloss or balm)
+
+## **Future Improvements** 
 Potential future improvements include:<br>
 - User inventory management
 - Smarter combination algorithm
