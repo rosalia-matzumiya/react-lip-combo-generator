@@ -62,6 +62,14 @@ ReactUI["React Frontend"]
 ExpressAPI["Express API"]
 ComboGenerator["Combo Generator Logic"]
 ```
+## **Screenshots**
+### Interface
+
+![Application Interface](docs/ui-overview.png)
+
+### Generated Lip Combos
+
+![Generated Combos](docs/generated-combos.png)
 ## Setup
 
 ### 1. Clone the repository
