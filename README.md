@@ -19,11 +19,12 @@ liner + base + topper<br>
 This allows users to quickly explore possible combinations from their existing inventory.<br>
 
 ### **Features:**<br>
-- Generate lip combos based on a selected color family
+- Generate lip combinations from a makeup inventory dataset
+- Filter lipstick base by selected color family
 - Randomized liner and topper selection
-- Lipstick base matched to the chosen color family
-- Structured API responses
-- Simple and responsive React UI<br>
+- Structured REST API responses
+- Client–server architecture using React and Express
+- Responsive card-based UI for displaying combos
 
 ### **Dataset**<br>
 The project currently uses a static dataset stored in:<br>
@@ -38,7 +39,7 @@ Current dataset size:<br>
 - 6 balms<br>
 
 Total lip products: 135<br>
-## **Tech Stack:**<br>
+### **Tech Stack:**<br>
 - Frontend: React + Vite + CSS
 - Backend: Node.js + Express
 - Architecture: REST API + Static JSON dataset 
@@ -61,6 +62,86 @@ ProductsDataset["products.json dataset"]
 ReactUI["React Frontend"]
 ExpressAPI["Express API"]
 ComboGenerator["Combo Generator Logic"]
+```
+## API Endpoints
+
+### Get Products
+
+Returns the full product dataset.
+
+```
+GET /products/
+```
+
+Example response:
+
+```json
+[
+  {
+    "id": "LIP-0020",
+    "brand": "Pat McGrath Labs",
+    "name": "PermaGel ultra lip pencil",
+    "shade": "Contour",
+    "type": "Liner",
+    "colorFamily": "Brown",
+    "finish": "Matte",
+    "size": "Normal"
+  }
+]
+```
+
+---
+
+### Get Product Metadata
+
+Returns unique product attributes used for filtering.
+
+```
+GET /products/meta
+```
+
+Example response:
+
+```json
+{
+  "uniqueBrands": [..."MAC", "NYX", "Rare Beauty"...],
+  "uniqueTypes": ["Balm", "Bullet", "Crayon", "Gloss", "Liner"],
+  "uniqueColorFamilies": ["Brown", "Nude", "Orange", "Peach", "Pink", "Red"],
+  "uniqueFinishes": ["Glossy", "Matte", "Satin", "Shimmer"]
+}
+```
+
+---
+
+### Generate Random Combo
+
+Generates a lip combo based on a selected color family.
+
+```
+GET /combos/random?colorFamily=nude
+```
+
+Example response:
+
+```json
+{
+  "colorFamily": "Nude",
+  "liner": {
+    "id": "LIP-0010",
+    "brand": "Rare Beauty",
+    "shade": "Admired"
+    },
+  "base": {
+    "id": "LIP-0096",
+    "brand": "NYX",
+    "shade": "Euro Trash"
+  },
+  "topper": {
+    "id": "LIP-0119",
+    "brand": "KKW",
+    "shade": "Proud of You"
+  }
+}
 ```
 ## **Screenshots**
 ### Interface
@@ -143,6 +224,37 @@ The application will generate a lip combination consisting of:
 - lipstick base
 - topper (gloss or balm)
 
+## Project Structure
+
+```
+lip-combo-generator
+│
+├── client
+│   ├── src
+│   │   ├── api
+│   │   ├── components
+│   │   ├── assets
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   ├── App.css
+│   │   └── index.css
+│   │
+│   ├── index.html
+│   └── vite.config.js
+│
+├── server
+│   ├── routes
+│   ├── utils
+│   ├── data
+│   │   └── products.json
+│   └── server.js
+│
+├── docs
+│   ├── ui-overview.png
+│   └── generated-combos.png
+│
+└── README.md
+```
 ## **Future Improvements** 
 Potential future improvements include:<br>
 - User inventory management
@@ -150,3 +262,15 @@ Potential future improvements include:<br>
 - Save favorite combos
 - Database integration
 - Mobile responsive improvements
+
+## What I Learned
+
+Building this project helped reinforce several full-stack development concepts:
+
+- Designing REST API endpoints with Express
+- Structuring a full-stack project with clear separation between client and server
+- Modeling product data and filtering it efficiently
+- Implementing API response shaping so the frontend only receives the data it needs
+- Managing asynchronous requests from a React frontend
+
+The project also helped practice writing maintainable code and documenting a project for other developers.
